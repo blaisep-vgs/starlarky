@@ -8,12 +8,15 @@ Starlarky API Reference
 About Starlarky...
 -------------------
 
-This doc is automatically generated using Sphinx and the ``autoapi`` extension. This project adapts Google's StarLark project to integrate with Very Good Security's secure compute environment.
+This doc is automatically generated using Sphinx and the ``autoapi`` extension.
+In this case, the trick is to rename ``*.star`` to ``*.py``.
+
+This project adapts Google's StarLark project to integrate with Very Good Security's secure compute environment.
 
 .. toctree::
    :maxdepth: 2
 
-   Starlarky API Guide <autoapi/index>
+   Starlarky API Guide <stdlib/index>
    Glossary of terms <glossary>
 
 

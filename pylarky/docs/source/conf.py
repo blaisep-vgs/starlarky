@@ -38,7 +38,9 @@ extensions = [
             'sphinxcontrib.confluencebuilder',
               ]
 
-autoapi_dirs = ['../../../pylarky']
+# autoapi_dirs = ['../../../pylarky']
+autoapi_dirs = ['../../../larky/src/main/resources/stdlib']
+source_suffix = ['.rst', '.star']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
