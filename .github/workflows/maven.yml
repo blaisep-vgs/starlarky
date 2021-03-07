@@ -22,12 +22,47 @@ jobs:
         java-version: 1.11
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
+    - name: cobertura-report
+      # You may pin to the exact commit or the version.
+      # uses: 5monkeys/cobertura-action@67ec5c1b5ee78e49d22300126df88761ca6a7031
+      uses: 5monkeys/cobertura-action@v7
+      with:
+        # The GITHUB_TOKEN for this repo
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        # Path to the cobertura file.
+        path: # default is coverage.xml
+        # If files with 100% should be skipped from report.
+        skip_covered: false
+        # Minimum allowed coverage percentage as an integer.
+        minimum_coverage: 5
+        # Show line rate as specific column.
+        show_line: 
+        # Show branch rate as specific column.
+        show_branch: 
+        # Show class names instead of file names.
+        show_class_names: true
+        # Show line numbers of statements, per module, that was not executed.
+        show_missing: 
+        # Crop missing line numbers strings that exceeds this length, provided as an integer.
+        show_missing_max_length: # optional, default is 
+        # Only show coverage for changed files.
+        only_changed_files: 
+        # Pull request number associated with the report. This property should be used when workflow trigger is different than pull_request.
+        pull_request_number: # optional, default is 
     - name: Codecov
       uses: codecov/codecov-action@v1.2.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         verbose: true
-
+    - name: Codacy Coverage Reporter
+      # You may pin to the exact commit or the version.
+      # uses: codacy/codacy-coverage-reporter-action@53ebfe140c89720a8234b8ea4fabaf6de5736092
+      uses: codacy/codacy-coverage-reporter-action@0.2.0
+      with:
+        # Project token for the Codacy project you want to send coverage information
+        project-token: ${{ secrets.CODACY_API_KEY }}
+        # Optional comma separated list of coverage reports to send to Codacy
+        coverage-reports: # optional, default is 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       with:
