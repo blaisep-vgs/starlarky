@@ -4,3 +4,4 @@ Sphinx==3.4.3
 sphinx-autoapi
 sphinxcontrib-confluencebuilder
 
+black>=24.3.0 # not directly required, pinned by Snyk to avoid a vulnerability
